@@ -1,26 +1,10 @@
 local packer = require 'lib.packer-init'
 
 packer.startup(function(use)
-  use { 'wbthomason/packer.nvim' } -- Let packer manage itself
---  use { 'airblade/vim-rooter' }
+  use { 'wbthomason/packer.nvim' }
   use { 'christoomey/vim-tmux-navigator' }
   use { 'farmergreg/vim-lastplace' }
   use { 'tpope/vim-commentary' }
-  -- use { 'tpope/vim-repeat' }
-  -- use { 'tpope/vim-surround' }
-  -- use { 'tpope/vim-eunuch' } -- Adds :Rename, :SudoWrite
---  use { 'tpope/vim-unimpaired' } -- Adds [b and other handy mappings
---  use { 'tpope/vim-sleuth' } -- Indent autodetection with editorconfig support
---  use { 'jessarcher/vim-heritage' } -- Automatically create parent dirs when saving
---  use { 'nelstrom/vim-visual-star-search' }
-
-  -- use {
-  --   'tpope/vim-projectionist',
-  --   config = function()
-  --     require('user.plugins.projectionist')
-  --   end
-  -- }
-
   use {
     'dracula/vim',
     as = 'dracula',
@@ -29,38 +13,7 @@ packer.startup(function(use)
     end
   }
 
---   use {
---     'tommcdo/vim-lion',
---     config = function()
---       require('user.plugins.lion')
---     end
---   }
-
-  -- use {
-  --   'whatyouhide/vim-textobj-xmlattr',
-  --   requires = 'kana/vim-textobj-user'
-  -- }
-
-  -- use {
-  --   'sickill/vim-pasta',
-  --   config = function()
-  --     require('user.plugins.pasta')
-  --   end
-  -- }
-
-  -- use {
-  --   'jessarcher/vim-sayonara',
-  --   config = function()
-  --     require('user.plugins.sayonara')
-  --   end
-  -- }
-
-  -- use {
-  --   'lukas-reineke/indent-blankline.nvim',
-  --   config = function()
-  --     require('user.plugins.indent-blankline')
-  --   end
-  -- }
+  use { 'sbdchd/neoformat' }
 
   use {
     'AndrewRadev/splitjoin.vim',
