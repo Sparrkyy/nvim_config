@@ -29,8 +29,6 @@ local on_attach = function(_, bufnr)
   buf_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
   -- buf_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
   buf_keymap(bufnr, 'n', 'gr', ':Telescope lsp_references<CR>')
-
-  -- buf_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
   -- buf_keymap(bufnr, 'v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>')
   -- buf_keymap(bufnr, 'n', '<leader>ca', ':Telescope lsp_code_actions<CR>')
   -- buf_keymap(bufnr, 'v', '<leader>ca', ':Telescope lsp_range_code_actions<CR>')
@@ -91,7 +89,7 @@ require'lspconfig'.emmet_ls.setup({
     filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
 })
 
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'sqlls', 'clangd', 'bashls' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'sqlls', 'clangd', 'bashls'}
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -193,6 +191,16 @@ require'lspconfig'.tailwindcss.setup{
     debounce_text_changes = 150,
   },
 }
+
+
+require'lspconfig'.omnisharp.setup {
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = function(_, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end,
+  cmd = { "~/.local/share/nvim/lsp_servers/omnisharp", "--languageserver" , "--hostPID", tostring(pid) },
+}
+
 
 -- require'lspconfig'.volar.setup{
 --   on_attach = on_attach,

@@ -43,6 +43,12 @@ keymap('n', '<C-Right>', ':vertical resize +2<CR>')
 
 --keymap('n', 'gt', ':bnext<CR>')
 
+
+-- My Favs 
+keymap('n', '<leader>b', ':b#<CR>')
+keymap('n', '<leader>q', ':q<CR>')
+
+
 -- Move text up and down
 -- keymap('n', '<A-j>', ':move .+1<CR>==') -- TODO: Something seems to be sending Alt occasionally and makes me mess up
 -- keymap('n', '<A-k>', ':move .-2<CR>==') -- TODO: Something seems to be sending Alt occasionally and makes me mess up

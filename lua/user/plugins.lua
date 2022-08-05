@@ -182,6 +182,13 @@ packer.startup(function(use)
     end
   }
 
+  use {
+    "williamboman/nvim-lsp-installer",
+    config = function()
+      require("nvim-lsp-installer").setup {}
+    end
+  }
+
   -- use {
   --   'mfussenegger/nvim-lint',
   --   config = function()
